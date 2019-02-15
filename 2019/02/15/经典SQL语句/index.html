@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>经典SQL语句 | 车车</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有两个表A和B，均有key和value两个字段，如果B的key在A中也有，就把B的value替换为A中对应的value 12update B b set b.value=(select max(a.value) from A a where b.key=a.key)where exists(select 1 from A c where b.key=c.key) 12UPDATE A a,(sel">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典SQL语句">
+<meta property="og:url" content="http://www.jsp.im/blog/2019/02/15/经典SQL语句/index.html">
+<meta property="og:site_name" content="车车">
+<meta property="og:description" content="有两个表A和B，均有key和value两个字段，如果B的key在A中也有，就把B的value替换为A中对应的value 12update B b set b.value=(select max(a.value) from A a where b.key=a.key)where exists(select 1 from A c where b.key=c.key) 12UPDATE A a,(sel">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-15T10:00:48.508Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典SQL语句">
+<meta name="twitter:description" content="有两个表A和B，均有key和value两个字段，如果B的key在A中也有，就把B的value替换为A中对应的value 12update B b set b.value=(select max(a.value) from A a where b.key=a.key)where exists(select 1 from A c where b.key=c.key) 12UPDATE A a,(sel">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="车车" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">车车</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.jsp.im/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-经典SQL语句" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/02/15/经典SQL语句/" class="article-date">
+  <time datetime="2019-02-15T06:03:52.000Z" itemprop="datePublished">2019-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      经典SQL语句
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有两个表A和B，均有key和value两个字段，如果B的key在A中也有，就把B的value替换为A中对应的value</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> B b <span class="keyword">set</span> b.value=(<span class="keyword">select</span> <span class="keyword">max</span>(a.value) <span class="keyword">from</span> A a <span class="keyword">where</span> b.key=a.key)</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">exists</span>(<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> A c <span class="keyword">where</span> b.key=c.key)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> A a,(<span class="keyword">select</span> a.<span class="string">`key`</span>,b.<span class="string">`value`</span> <span class="keyword">from</span> A <span class="keyword">INNER</span> <span class="keyword">JOIN</span> B <span class="keyword">on</span> a.<span class="string">`key`</span>=b.<span class="string">`key`</span>) b </span><br><span class="line"><span class="keyword">SET</span> a.<span class="string">`value`</span> = b.<span class="string">`value`</span> <span class="keyword">WHERE</span> a.<span class="string">`key`</span> = b.<span class="string">`key`</span></span><br></pre></td></tr></table></figure>
+<p>查询表A中存在ID重复三次以上的记录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> * <span class="keyword">From</span> A <span class="keyword">Where</span> <span class="keyword">id</span> <span class="keyword">in</span>(<span class="keyword">select</span> <span class="keyword">ID</span> <span class="keyword">from</span> A <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">having</span> <span class="keyword">count</span>(<span class="keyword">id</span>)&gt;<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p>用一条SQL语句显示所有可能的比赛组合</p>
+<p>一个叫team的表，里面只有一个字段name，一共有4 条纪录，分别是a、b、c、d，对应四个球队，现在四个球队进行比赛，用一条SQL语句显示所有可能的比赛组合。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> team a,team b <span class="keyword">where</span> a.name&gt;b.name;</span><br></pre></td></tr></table></figure>
+<p>用SQL语句实现：当A列大于B列时选择A列否则选择B列，当B列大于C列时选择B列否则选择C列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> (<span class="keyword">case</span> <span class="keyword">when</span> a&gt;b <span class="keyword">then</span> a <span class="keyword">else</span> b <span class="keyword">end</span> ),(<span class="keyword">case</span> <span class="keyword">when</span> b&gt;c <span class="keyword">then</span> b esle c <span class="keyword">end</span>)  <span class="keyword">from</span> 表名</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">if</span>(a&gt;b,a,b),<span class="keyword">if</span>(b&gt;c,b,c) <span class="keyword">from</span> 表名</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.jsp.im/blog/2019/02/15/经典SQL语句/" data-id="cjs5vv51u0000vcsx6h4dzbja" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/SQL/">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2019/02/15/统计NumPy数组中最频繁出现的值/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">统计NumPy数组中最频繁出现的值</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NumPy/">NumPy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/曲线拟合/">曲线拟合</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/相似度/">相似度</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/距离/">距离</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/NumPy/" style="font-size: 20px;">NumPy</a> <a href="/blog/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/blog/tags/python/" style="font-size: 10px;">python</a> <a href="/blog/tags/曲线拟合/" style="font-size: 10px;">曲线拟合</a> <a href="/blog/tags/相似度/" style="font-size: 10px;">相似度</a> <a href="/blog/tags/距离/" style="font-size: 10px;">距离</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/02/">February 2019</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2019/02/15/经典SQL语句/">经典SQL语句</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/02/15/统计NumPy数组中最频繁出现的值/">统计NumPy数组中最频繁出现的值</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/02/15/距离和相似度/">距离和相似度</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/02/15/NumPy中的集合运算/">NumPy中的集合运算</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/02/14/python曲线拟合/">python曲线拟合</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 jsp<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/about" class="mobile-nav-link">About</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
