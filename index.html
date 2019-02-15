@@ -62,6 +62,93 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-统计NumPy数组中最频繁出现的值" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/02/15/统计NumPy数组中最频繁出现的值/" class="article-date">
+  <time datetime="2019-02-15T05:12:24.000Z" itemprop="datePublished">2019-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/02/15/统计NumPy数组中最频繁出现的值/">统计NumPy数组中最频繁出现的值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">100</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">1</span>,<span class="number">1</span>,<span class="number">100</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
+<p>方法一：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">count = np.bincount(arr[:,<span class="number">2</span>])  <span class="comment"># 找出第3列最频繁出现的值</span></span><br><span class="line">value = np.argmax(count)</span><br></pre></td></tr></table></figure>
+<p>方法二：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line">value = Counter(arr[:,<span class="number">2</span>]).most_common()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.jsp.im/blog/2019/02/15/统计NumPy数组中最频繁出现的值/" data-id="cjs5ln0d00004gcsx3yqcalw8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/NumPy/">NumPy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-距离和相似度" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/02/15/距离和相似度/" class="article-date">
+  <time datetime="2019-02-15T05:07:42.000Z" itemprop="datePublished">2019-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/02/15/距离和相似度/">距离和相似度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>sklearn.metrics.pairwise.cosine_similarity<br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html#sklearn.metrics.pairwise.cosine_similarity" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html#sklearn.metrics.pairwise.cosine_similarity</a></p>
+<p>sklearn.metrics.pairwise.pairwise_distances<br><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances.html#sklearn.metrics.pairwise_distances" target="_blank" rel="noopener">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances.html#sklearn.metrics.pairwise_distances</a></p>
+<p>sklearn.metrics.pairwise_distances_argmin<br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin.html#sklearn.metrics.pairwise_distances_argmin" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin.html#sklearn.metrics.pairwise_distances_argmin</a></p>
+<p>scipy.spatial.distance.cdist<br><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.cdist.html#scipy.spatial.distance.cdist" target="_blank" rel="noopener">https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.cdist.html#scipy.spatial.distance.cdist</a></p>
+<p>scipy.spatial.distance.pdist<br><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html#scipy.spatial.distance.pdist" target="_blank" rel="noopener">https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html#scipy.spatial.distance.pdist</a></p>
+<p>scipy.stats.pearsonr<br><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" target="_blank" rel="noopener">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.jsp.im/blog/2019/02/15/距离和相似度/" data-id="cjs5ln0cz0003gcsx13isls2d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/相似度/">相似度</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/距离/">距离</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-NumPy中的集合运算" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/02/15/NumPy中的集合运算/" class="article-date">
@@ -94,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.jsp.im/blog/2019/02/15/NumPy中的集合运算/" data-id="cjs5l7c7i000068sxdn40fk1o" class="article-share-link">Share</a>
+      <a data-url="http://www.jsp.im/blog/2019/02/15/NumPy中的集合运算/" data-id="cjs5ln0cs0000gcsxen1br1q8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/NumPy/">NumPy</a></li></ul>
@@ -134,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.jsp.im/blog/2019/02/14/python曲线拟合/" data-id="cjs5l7c7y000468sxu34jqzdh" class="article-share-link">Share</a>
+      <a data-url="http://www.jsp.im/blog/2019/02/14/python曲线拟合/" data-id="cjs5ln0d10005gcsxkfhhh5yo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/曲线拟合/">曲线拟合</a></li></ul>
@@ -181,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.jsp.im/blog/2019/02/13/hello-world/" data-id="cjs5l7c7s000268sxpc69wzaw" class="article-share-link">Share</a>
+      <a data-url="http://www.jsp.im/blog/2019/02/13/hello-world/" data-id="cjs5ln0cw0001gcsx4bm3wn1i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -204,7 +291,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NumPy/">NumPy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/曲线拟合/">曲线拟合</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/NumPy/">NumPy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/曲线拟合/">曲线拟合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/相似度/">相似度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/距离/">距离</a></li></ul>
     </div>
   </div>
 
@@ -214,7 +301,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/NumPy/" style="font-size: 10px;">NumPy</a> <a href="/blog/tags/python/" style="font-size: 10px;">python</a> <a href="/blog/tags/曲线拟合/" style="font-size: 10px;">曲线拟合</a>
+      <a href="/blog/tags/NumPy/" style="font-size: 20px;">NumPy</a> <a href="/blog/tags/python/" style="font-size: 10px;">python</a> <a href="/blog/tags/曲线拟合/" style="font-size: 10px;">曲线拟合</a> <a href="/blog/tags/相似度/" style="font-size: 10px;">相似度</a> <a href="/blog/tags/距离/" style="font-size: 10px;">距离</a>
     </div>
   </div>
 
@@ -234,6 +321,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2019/02/15/统计NumPy数组中最频繁出现的值/">统计NumPy数组中最频繁出现的值</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/02/15/距离和相似度/">距离和相似度</a>
+          </li>
         
           <li>
             <a href="/blog/2019/02/15/NumPy中的集合运算/">NumPy中的集合运算</a>

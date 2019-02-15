@@ -5,15 +5,20 @@
   
 
   
-  <title>Tag: NumPy | 车车</title>
+  <title>统计NumPy数组中最频繁出现的值 | 车车</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="车车">
-<meta property="og:url" content="http://www.jsp.im/blog/tags/NumPy/index.html">
+  <meta name="description" content="1arr = np.array([[1,2,100,4,5,6],[1,1,100,3,5,5],[2,2,4,4,6,6]]) 方法一： 12count = np.bincount(arr[:,2])  # 找出第3列最频繁出现的值value = np.argmax(count) 方法二： 123from collections import Countervalue = Counter(arr">
+<meta name="keywords" content="NumPy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="统计NumPy数组中最频繁出现的值">
+<meta property="og:url" content="http://www.jsp.im/blog/2019/02/15/统计NumPy数组中最频繁出现的值/index.html">
 <meta property="og:site_name" content="车车">
+<meta property="og:description" content="1arr = np.array([[1,2,100,4,5,6],[1,1,100,3,5,5],[2,2,4,4,6,6]]) 方法一： 12count = np.bincount(arr[:,2])  # 找出第3列最频繁出现的值value = np.argmax(count) 方法二： 123from collections import Countervalue = Counter(arr">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-15T05:15:49.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="车车">
+<meta name="twitter:title" content="统计NumPy数组中最频繁出现的值">
+<meta name="twitter:description" content="1arr = np.array([[1,2,100,4,5,6],[1,1,100,3,5,5],[2,2,4,4,6,6]]) 方法一： 12count = np.bincount(arr[:,2])  # 找出第3列最频繁出现的值value = np.argmax(count) 方法二： 123from collections import Countervalue = Counter(arr">
   
     <link rel="alternate" href="/blog/atom.xml" title="车车" type="application/atom+xml">
   
@@ -60,59 +65,58 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2019/02/15/统计NumPy数组中最频繁出现的值/" class="archive-article-date">
-  <time datetime="2019-02-15T05:12:24.000Z" itemprop="datePublished">Feb 15</time>
+        <section id="main"><article id="post-统计NumPy数组中最频繁出现的值" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/02/15/统计NumPy数组中最频繁出现的值/" class="article-date">
+  <time datetime="2019-02-15T05:12:24.000Z" itemprop="datePublished">2019-02-15</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2019/02/15/统计NumPy数组中最频繁出现的值/">统计NumPy数组中最频繁出现的值</a>
+    <h1 class="article-title" itemprop="name">
+      统计NumPy数组中最频繁出现的值
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2019/02/15/NumPy中的集合运算/" class="archive-article-date">
-  <time datetime="2019-02-15T04:59:00.000Z" itemprop="datePublished">Feb 15</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2019/02/15/NumPy中的集合运算/">NumPy中的集合运算</a>
-    </h1>
-  
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">100</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">1</span>,<span class="number">1</span>,<span class="number">100</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
+<p>方法一：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">count = np.bincount(arr[:,<span class="number">2</span>])  <span class="comment"># 找出第3列最频繁出现的值</span></span><br><span class="line">value = np.argmax(count)</span><br></pre></td></tr></table></figure>
+<p>方法二：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line">value = Counter(arr[:,<span class="number">2</span>]).most_common()</span><br></pre></td></tr></table></figure>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.jsp.im/blog/2019/02/15/统计NumPy数组中最频繁出现的值/" data-id="cjs5ln0d00004gcsx3yqcalw8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/NumPy/">NumPy</a></li></ul>
+
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/blog/2019/02/15/距离和相似度/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">距离和相似度</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
